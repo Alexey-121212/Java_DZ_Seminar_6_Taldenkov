@@ -22,6 +22,9 @@ public class Main {
         Notebook notebook5 = new Notebook(64, 256, 5);
         notebook5.setOs("Unknown");
         notebook5.setBrand("ASUS");
+        Notebook notebook6 = new Notebook(8, 512, 1);
+        notebook6.setOs("Ubuntu");
+        notebook6.setBrand("HP");
 
         Set<Notebook> nbset = new HashSet<Notebook>();
 
@@ -30,8 +33,13 @@ public class Main {
         nbset.add(notebook3);
         nbset.add(notebook4);
         nbset.add(notebook5);
+        nbset.add(notebook6);
 
         printNotebooksByFilter(nbset, getCriterias());
+
+        // Проверяем переписанный в классе Notebook метод equals
+        // System.out.println("Ноутбук 1 такойже как ноутбук 6? Ответ: " +
+        // notebook1.equals(notebook6));
 
     }
 
@@ -141,7 +149,7 @@ public class Main {
             else
                 bweight = (notebook.getWeight() <= filter.get("weight"));
 
-            if (bram & bhdd & bweight) {
+            if (bram && bhdd && bweight) {
                 isemptylist = false;
                 System.out.println();
                 System.out.println("__________________________________");

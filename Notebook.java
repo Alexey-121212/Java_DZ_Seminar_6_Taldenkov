@@ -71,8 +71,16 @@ public class Notebook {
 
     @Override
     public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        return super.equals(obj);
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Notebook nb = (Notebook) obj;
+        return (nb.ram == this.ram &&
+                nb.hdd == this.hdd &&
+                nb.weight == this.weight &&
+                nb.os.equals(this.os) &&
+                nb.brand.equals(this.brand)) ? true : false;
     }
 
     @Override
